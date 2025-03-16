@@ -1,0 +1,29 @@
+{% extends "layout.twig" %}
+
+{% block nav %}
+    <nav>
+        <ul class="navigation">
+            <li><a href="http://blog.local/">Home</a></li>
+            <li><a href="http://blog.local/about">About</a></li>
+            <li><a href="http://blog.local/contact">Contact</a></li>
+            <li><a href="http://blog.local/logout">Logout</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    <h1>Panel de control de Administrador</h1>
+    <h3>Has iniciado sesión como: {{ user }} (<span>{{ email }}</span>)</h3>
+    <ul>
+        <li><a href="http://blog.local/addBlog">Crear un nuevo blog</a></li>
+        <li><a href="http://blog.local/addUser">Añadir un nuevo usuario</a></li>
+    </ul>
+
+    <br/><br/>
+
+    <a href="http://blog.local/logout">Cerrar sesión</a>
+{% endblock %}
+
+{% block sidebar %}
+    {% include "sidebar.twig" %}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "layout.twig" %}
+
+{% block nav %}
+    <nav>
+        <ul class="navigation">
+            <li><a href="http://blog.local/">Home</a></li>
+            <li><a href="http://blog.local/about">About</a></li>
+            {% if profile == "Invitado" %}
+                <li><a href="http://blog.local/login">Login</a></li>
+            {% else %}
+                <li><a href="http://blog.local/contact">Contact</a></li>
+                <li><a href="http://blog.local/admin">Admin</a></li>
+                <li><a href="http://blog.local/logout">Logout</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    {% for blog in blogs %}
+        <article class="blog">
+            <div class="date">
+                <time datetime=" \">{{  blog.created | date('l, F j, Y')  }}</time>
+            </div>
+            <header>
+                <h2><a href="http://blog.local/show?id={{ blog.id }}">{{ blog.title }}</a></h2>
+            </header>
+            <img src="img/{{ blog.image }}"/>
+            <div class="snippet">
+                <p>{{ blog.blog }}</p>
+                <p class="continue"><a href="http://blog.local/show?id={{ blog.id }}">Continue reading...</a></p>
+            </div>
+            <footer class="meta">
+                <p>Comments: <a href="http://blog.local/show?id={{ blog.id }}">{{ blog.numComments() }}</a></p>
+                <p>Posted by <span class="highlight">{{ blog.author }}</span> at {{ blog.created }}</p>
+                <p>Tags: <span class="highlight">{{ blog.tags }}</span></p>
+            </footer>
+        </article>
+    {% endfor %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include "sidebar.twig" %}
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "layout.twig" %}
+
+{% block nav %}
+    <nav>
+        <ul class="navigation">
+            <li><a href="http://blog.local/">Home</a></li>
+            <li><a href="http://blog.local/about">About</a></li>
+            {% if profile == "Invitado" %}
+                <li><a href="http://blog.local/login">Login</a></li>
+            {% else %}
+                <li><a href="http://blog.local/contact">Contact</a></li>
+                <li><a href="http://blog.local/admin">Admin</a></li>
+                <li><a href="http://blog.local/logout">Logout</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    <article class="blog">
+        <div class="date">
+            <time datetime=" \">{{  blog.created | date('l, F j, Y')  }}</time>
+        </div>
+        <header>
+            <h2>{{ blog.title }}</h2>
+        </header>
+        <img src="img/{{ blog.image }}"/>
+        <div class=\"snippet\">
+            <p>{{ blog.blog }}</p>
+        </div>
+    </article>
+    <section class="comments">
+        <h3>Comments</h3>
+        {% if profile != "Invitado" %}
+            <p>{{ user }} (<span>{{ email }}</span>)</p>
+            <form class="blogger" action="" method="post">
+                <div>
+                    <label for="comment">Comentario:</label>
+                    <textarea id="comment" name="comment" required></textarea>
+                </div>
+                <div>
+                    <input name="comentar" type="submit" value="Comentar">
+                </div>
+            </form>
+        {% endif %}
+        {% if numComments == 0 %}
+            <p>No hay comentarios todavía</p>
+        {% else %}
+            {% for key,comment in comments %}
+                {% set class = (key is even) ? "comment odd" : "comment" %}
+                <article class="{{ class }}">
+                    <p><span class="highlight"> {{ comment.user }} {{ comment.created.diff(date()).days }} days</span> 
+                    commented {{ comment.created | date('l, F j, Y') }}</p>
+                    <p>{{ comment.comment }}<p>
+                </article>
+            {% endfor %}
+        {% endif %}
+    </section>
+{% endblock %}
+
+{% block sidebar %}
+    {% include "sidebar.twig" %}
+{% endblock %}
+

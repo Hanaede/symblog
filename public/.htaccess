@@ -1,0 +1,6 @@
+RewriteEngine On
+#No reescribimos index.php si estamos en la carpeta test
+RewriteRule ^(test|css|img)($|/) - [L]
+RewriteRule (.*) index.php
+RewriteCond %{HTTP:Authorization} ^(.+)$
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

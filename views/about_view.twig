@@ -1,0 +1,66 @@
+{% extends "layout.twig" %}
+
+{% block nav %}
+    <nav>
+        <ul class="navigation">
+            <li><a href="http://blog.local/">Home</a></li>
+            {% if profile == "Invitado" %}
+                <li><a href="http://blog.local/login">Login</a></li>
+            {% else %}
+                <li><a href="http://blog.local/contact">Contact</a></li>
+                <li><a href="http://blog.local/admin">Admin</a></li>
+                <li><a href="http://blog.local/logout">Logout</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    <h1>Sobre este blog</h1>
+<p>SymBlog es una aplicación web desarrollada en PHP que utiliza el motor de plantillas Twig para generar contenido dinámico y atractivo. Es una plataforma sencilla pero potente para crear y gestionar blogs, ofreciendo una experiencia completa tanto para el usuario final como para el administrador del contenido.</p>
+
+<p>¿Qué hace SymBlog especial?</p>
+<p>SymBlog permite a los usuarios crear, visualizar y comentar publicaciones de forma sencilla y eficiente. Gracias al uso de Twig, el diseño de las páginas es limpio y estructurado, lo que mejora la experiencia de usuario y facilita el mantenimiento del código.</p>
+
+<p>Tecnologías Utilizadas</p>
+<p>PHP: El núcleo de la aplicación está desarrollado en PHP, lo que permite una alta flexibilidad y rendimiento.</p>
+<p>Twig: El motor de plantillas Twig facilita la separación entre la lógica del servidor y la presentación, mejorando la mantenibilidad.</p>
+<p>Eloquent ORM: Simplifica la interacción con la base de datos mediante un enfoque orientado a objetos.</p>
+<p>Laminas Diactoros: Utilizado para manejar las respuestas HTTP de manera eficiente.</p>
+<p>Respect/Validation: Se encarga de validar los datos de entrada en los formularios, garantizando su integridad.</p>
+<p>Bootstrap/Tailwind: Para un diseño moderno y responsive.</p>
+
+<p>Características Principales</p>
+<p>Creación de Blogs: Los usuarios pueden crear publicaciones con título, descripción, autor, etiquetas e imágenes.</p>
+<p>Comentarios Dinámicos: Los lectores pueden dejar comentarios en las publicaciones, fomentando la interacción.</p>
+<p>Sistema de Autenticación: Gestiona el acceso de usuarios registrados y visitantes.</p>
+<p>Carga de Imágenes: Permite subir imágenes junto con la publicación, que se almacenan en el servidor.</p>
+<p>Gestión de Comentarios: Los comentarios se almacenan asociados a cada publicación, permitiendo respuestas en tiempo real.</p>
+
+<p>Estructura del Proyecto</p>
+<p>Controladores (Controllers): Gestionan las solicitudes HTTP y manejan la lógica de la aplicación.</p>
+<p>Modelos (Models): Interactúan con la base de datos utilizando Eloquent.</p>
+<p>Vistas (Views): Plantillas Twig que muestran la información de manera clara y organizada.</p>
+<p>Rutas (Routes): Definen la navegación dentro de la aplicación.</p>
+
+<p>Flujo de Trabajo</p>
+<p>El usuario accede al formulario para crear una nueva publicación.</p>
+<p>El controlador valida los datos y almacena el contenido en la base de datos.</p>
+<p>Si se incluye una imagen, esta se sube al servidor y se guarda la ruta en la base de datos.</p>
+<p>La publicación se muestra en la página principal junto con los comentarios más recientes.</p>
+<p>Los usuarios pueden comentar en cada entrada, lo que fomenta la participación.</p>
+
+<p>Beneficios de Utilizar SymBlog</p>
+<p>Código Limpio y Modular: Gracias al uso de controladores, modelos y vistas organizados.</p>
+<p>Presentación Dinámica: Las plantillas Twig hacen que la interfaz sea atractiva y fácil de usar.</p>
+<p>Alto Rendimiento: El uso de Eloquent ORM y Laminas garantiza eficiencia en la gestión de datos.</p>
+<p>Facilidad de Personalización: La estructura clara permite añadir nuevas características fácilmente.</p>
+
+<p>SymBlog es la solución perfecta para quienes buscan un blog dinámico y moderno sin sacrificar rendimiento ni simplicidad. ¿Listo para sumergirte en el mundo de los blogs con PHP y Twig? SymBlog es tu mejor aliado.</p>
+
+
+{% endblock %}
+
+{% block sidebar %}
+    {% include "sidebar.twig" %}
+{% endblock %}
