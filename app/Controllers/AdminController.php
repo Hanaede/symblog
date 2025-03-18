@@ -1,7 +1,7 @@
 <?php
      namespace App\Controllers;
      include "../lib/lib.php";
-     use Laminas\Diactoros\Response\HTMLResponse;
+     use Laminas\Diactoros\Response\HTMLResponse; //Respuestas y solicitudes HTTP
      use App\Models\Blog;
 
     class AdminController extends BaseController
