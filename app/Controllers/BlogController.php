@@ -34,7 +34,7 @@ class BlogController extends BaseController {
                 'author' => $postData['author'],
                 'blog' => $postData['desc'],
                 'tags' => $postData['tags'],
-                'image' => null
+                'image' => 'beach.jpg'
             ];
         
             // Manejar la carga de archivos
