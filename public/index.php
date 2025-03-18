@@ -29,7 +29,7 @@
     $map->get("home", "/", ['controller'=>IndexController::Class, 'action'=>"IndexAction"]);
     $map->get("about", "/about", ['controller'=>IndexController::Class, 'action'=>"AboutAction"]);
     $map->get("contact", "/contact", ['controller'=>IndexController::Class, 'action'=>"ContactAction", 'auth' => true]);
-    $map->get("newBlog", "/addBlog", ['controller'=>BlogController::Class, 'action'=>"NewAction"]);
+    $map->get("newBlog", "/addBlog", ['controller'=>BlogController::Class, 'action'=>"NewAction", 'auth' => true]);
     $map->get("showBlog", "/show", ['controller'=>BlogController::Class, 'action'=>"ShowAction"]);
     $map->get("newUser", "/addUser", ['controller'=>UserController::Class, 'action'=>"NewAction", 'auth' => true]);
     $map->get("getLogin", "/login", ['controller'=>AuthController::Class, 'action'=>"GetLoginAction"]);

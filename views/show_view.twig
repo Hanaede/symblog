@@ -31,18 +31,18 @@
     </article>
     <section class="comments">
         <h3>Comments</h3>
-        {% if profile != "Invitado" %}
-            <p>{{ user }} (<span>{{ email }}</span>)</p>
-            <form class="blogger" action="" method="post">
-                <div>
-                    <label for="comment">Comentario:</label>
-                    <textarea id="comment" name="comment" required></textarea>
-                </div>
-                <div>
-                    <input name="comentar" type="submit" value="Comentar">
-                </div>
-            </form>
-        {% endif %}
+       {% if profile != "Invitado" %}
+    <p>{{ user }} (<span>{{ email }}</span>)</p>
+{% endif %}
+<form class="blogger" action="" method="post">
+    <div>
+        <label for="comment">Comentario:</label>
+        <textarea id="comment" name="comment" required></textarea>
+    </div>
+    <div>
+        <input name="comentar" type="submit" value="Comentar">
+    </div>
+</form>
         {% if numComments == 0 %}
             <p>No hay comentarios todavía</p>
         {% else %}

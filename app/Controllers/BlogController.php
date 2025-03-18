@@ -105,7 +105,7 @@ class BlogController extends BaseController {
             // Crear y guardar el comentario
             $comment = Comment::create([
                 'blog_id' => $_GET["id"],
-                'user' => $_SESSION['user']->user,
+                'user' => $_SESSION['user']->user??'Invitado',
                 'comment' => $postData['comment'],
                 'approved' => 1
             ]);
