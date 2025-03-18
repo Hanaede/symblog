@@ -5,12 +5,15 @@
         <ul class="navigation">
             <li><a href="http://blog.local/">Home</a></li>
             <li><a href="http://blog.local/about">About</a></li>
+
             {% if profile == "Invitado" %}
                 <li><a href="http://blog.local/login">Login</a></li>
+
             {% else %}
                 <li><a href="http://blog.local/contact">Contact</a></li>
                 <li><a href="http://blog.local/admin">Admin</a></li>
                 <li><a href="http://blog.local/logout">Logout</a></li>
+
             {% endif %}
         </ul>
     </nav>

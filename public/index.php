@@ -36,6 +36,8 @@
     $map->get("admin", "/admin", ['controller'=>AdminController::Class, 'action'=>"AdminAction", 'auth' => true]);
     $map->get("logOut", "/logout", ['controller'=>AuthController::Class, 'action'=>"LogOutAction", 'auth' => true]);
 
+   
+
     $map->post("addBlog", "/addBlog", ['controller'=>BlogController::Class, 'action'=>"AddAction"]);
     $map->post("addUser", "/addUser", ['controller'=>UserController::Class, 'action'=>"AddAction", 'auth' => true]);
     $map->post("postLogin", "/login", ['controller'=>AuthController::Class, 'action'=>"PostLoginAction"]);
